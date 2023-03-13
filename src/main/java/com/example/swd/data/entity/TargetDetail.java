@@ -33,17 +33,21 @@ public class TargetDetail {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "target_detail_sequence")
     private long id;
 
-    @Column(name = "grade", nullable = true, unique = true, length = 100)
+    @Column(name = "grade", nullable = true, unique = false, length = 100)
     private Double grade;
 
-    @Column(name = "process", nullable = true, unique = true, length = 100)
+    @Column(name = "process", nullable = true, unique = false, length = 100)
     private Double process;
 
-    @Column(name = "subject", nullable = true, unique = true, length = 100)
+    @Column(name = "subject", nullable = true, unique = false, length = 100)
     private String subject;
 
-    @Column(name = "major", nullable = true, unique = true, length = 100)
+    @Column(name = "major", nullable = true, unique = false, length = 100)
     private String major;
+
+    @ManyToOne()
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @ManyToOne()
     @JoinColumn(name = "target_id")

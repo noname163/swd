@@ -33,7 +33,7 @@ public class WrongAnswer {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "wrong_answer_sequence")
     private Long id;
 
-    @Column(name = "wrong_answer", nullable = true, unique = true, length = 100)
+    @Column(name = "wrong_answer", nullable = true, unique = false, length = 100)
     private String wrongAnswer;
 
     @ManyToOne()

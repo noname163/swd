@@ -34,16 +34,16 @@ public class Target {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "target_sequence")
     private Long id;
 
-    @Column(name = "grade", nullable = true, unique = true, length = 100)
+    @Column(name = "grade", nullable = true, unique = false, length = 100)
     private Double grade;
 
-    @Column(name = "process", nullable = true, unique = true, length = 100)
+    @Column(name = "process", nullable = true, unique = false, length = 100)
     private Double process;
 
-    @Column(name = "group", nullable = true, unique = true, length = 100)
+    @Column(name = "group_major", nullable = true, unique = false, length = 100)
     private String group;
 
-    @Column(name = "major", nullable = true, unique = true, length = 100)
+    @Column(name = "major", nullable = true, unique = false, length = 100)
     private String major;
 
     @ManyToOne()

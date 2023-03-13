@@ -33,13 +33,13 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "question_sequence")
     private Long id;
 
-    @Column(name = "question", nullable = true, unique = true, length = 100)
+    @Column(name = "question", nullable = true, unique = false, length = 100)
     private String question;
 
-    @Column(name = "subject", nullable = true, unique = true, length = 100)
+    @Column(name = "subject", nullable = true, unique = false, length = 100)
     private String subject;
 
-    @Column(name = "answer", nullable = true, unique = true, length = 100)
+    @Column(name = "answer", nullable = true, unique = false, length = 100)
     private String answer;
 
     @ManyToMany

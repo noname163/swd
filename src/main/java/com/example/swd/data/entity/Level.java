@@ -1,7 +1,5 @@
 package com.example.swd.data.entity;
 
-import java.util.List;
-
 import jakarta.persistence.Id;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,7 +8,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
@@ -21,31 +18,28 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Table(name="Test_Result")
+@Table(name = "Levels")
 @Entity
 @Builder
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
-public class TestResult {
+public class Level {
     @Id
-    @SequenceGenerator(name = "test_result_sequence", sequenceName = "test_result_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "test_result_sequence")
+    @SequenceGenerator(name = "level_sequence", sequenceName = "level_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "level_sequence")
     private Long id;
 
-    @Column(name = "grade", nullable = true, unique = false, length = 100)
-    private Double grade;
-    
-    @Column(name = "subject", nullable = true, unique = false, length = 100)
-    private String subject;
+    @Column(name = "level", unique = false)
+    private Integer level;
+    @Column(name = "min_grade", unique = false)
+    private Integer minGrade;
+    @Column(name = "max_grade", unique = false)
+    private Integer maxGrade;
+    @Column(name = "min_time", unique = false)
+    private Integer minTime;
+    @Column(name = "max_time", unique = false)
+    private Integer maxTime;
 
-    @ManyToOne()
-    @JoinColumn(name = "user_id")
-    private User user;
-    
-    @ManyToOne()
-    @JoinColumn(name = "test_id")
-    private Test test;
 }

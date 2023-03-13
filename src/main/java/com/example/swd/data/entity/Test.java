@@ -35,8 +35,10 @@ public class Test {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "test_sequence")
     private Long id;
 
-    @Column(name = "createDate", nullable = true, unique = true, length = 100)
+    @Column(name = "createDate", nullable = true, unique = false, length = 100)
     private LocalDate createDate;
+    @Column(name = "subject", nullable = true, unique = false, length = 100)
+    private String subject;
 
     @ManyToMany(mappedBy = "test")
     private List<Question> question;

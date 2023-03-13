@@ -35,10 +35,10 @@ public class User {
     @Column(name = "username", nullable = true, unique = true, length = 100)
     private String username;
 
-    @Column(name = "password", nullable = true, unique = true, length = 100)
+    @Column(name = "password", nullable = true, unique = false, length = 100)
     private String password;
 
-    @Column(name = "course", nullable = true, unique = true, length = 100)
+    @Column(name = "course", nullable = true, unique = false, length = 100)
     private Integer course;
 
     @OneToMany(mappedBy = "user")
@@ -46,4 +46,7 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<Target> target;
+
+    @OneToMany(mappedBy = "user")
+    private List<TargetDetail> targetDetail;
 }
